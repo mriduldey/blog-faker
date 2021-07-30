@@ -1,9 +1,9 @@
 import React from "react";
-import { Container, Row, Col, Image, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import writerImage from "../resources/writer1.png";
 const User = ({ user }) => {
   return (
-    <Card style={{ width: "18rem" }} className="user-card rounded-3 shadow p-2">
+    <Card className="user-card rounded-3 shadow p-2">
       <Card.Img variant="top" src={writerImage} className="user-image" />
       <Card.Body className="text-white">
           <Card.Title>{user.name} | {user.username}</Card.Title>

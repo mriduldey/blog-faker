@@ -16,7 +16,7 @@ const UsersPage = ({ dispatch, users, loading, hasErrors }) => {
     if (hasErrors) return <p>Unable to display users.</p>;
 
     return users.map(user => (
-      <Col xs={12} md={6} lg={4} className="mb-2" key={user.id}>
+      <Col xs={12} sm={6} lg={4} xl={3} className="mb-2" key={user.id}>
         <Link to={`/users/${user.id}/posts`} className="button">
           <User user={user} />
         </Link>

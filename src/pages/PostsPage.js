@@ -14,7 +14,7 @@ const PostsPage = ({ match, dispatch, posts, loading, hasErrors }) => {
     const { id } = match.params;
 
     dispatch(fetchPosts(id));
-  }, [dispatch]);
+  }, [dispatch, match.params]);
 
   // Show loading, error, or success state
   const renderPosts = () => {
