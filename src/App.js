@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import DashboardPage from "./pages/DashboardPages";
+import UsersPage from "./pages/UsersPage";
 import PostsPage from "./pages/PostsPage";
 import PostPage from "./pages/PostPage";
 
@@ -14,10 +14,10 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={DashboardPage} />
-        <Route exact path="/posts" component={PostsPage} />
+        <Route exact path="/users" component={UsersPage} />
+        <Route exact path="/users/:id/posts/" component={PostsPage} />
         <Route exact path="/posts/:id" component={PostPage} />
-        <Redirect to="/" />
+        <Redirect to="/users" />
       </Switch>
     </Router>
   );

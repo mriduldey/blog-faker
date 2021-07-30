@@ -18,13 +18,13 @@ export const getPostsfailure = () => ({
 });
 
 // Combine them all in a asynchronous thunk
-export function fetchPosts() {
+export function fetchPosts(userId) {
   return async dispatch => {
     dispatch(getPosts());
 
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
+        "https://jsonplaceholder.typicode.com/posts?userId=" + userId
       );
       const data = await response.json();
       dispatch(getPostsSuccess(data));

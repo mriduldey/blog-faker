@@ -1,6 +1,7 @@
 // Import library components
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Container, Row, Col } from "react-bootstrap";
 
 // Import local components
 import { Post } from "../components/Post";
@@ -10,7 +11,14 @@ import { Comment } from "../components/Comment";
 import { fetchPost } from "../actions/postActions";
 import { fetchComments } from "../actions/commentsActions";
 
-const PostPage = ({ dispatch, match, post, comments, loading = {}, hasErrors = {} }) => {
+const PostPage = ({
+  dispatch,
+  match,
+  post,
+  comments,
+  loading = {},
+  hasErrors = {},
+}) => {
   useEffect(() => {
     const { id } = match.params;
 
@@ -22,7 +30,9 @@ const PostPage = ({ dispatch, match, post, comments, loading = {}, hasErrors = {
     if (post) {
       if (loading.post) return <p>Loading posts...</p>;
       if (hasErrors.post) return <p>Unable to display posts.</p>;
-      return post && <Post key={post.id} fullPage post={post} />;
+      return (
+        post && <Post key={post.id} fullPage post={post} varient="Light" />
+      );
     }
   };
 
@@ -37,12 +47,20 @@ const PostPage = ({ dispatch, match, post, comments, loading = {}, hasErrors = {
   };
 
   return (
-    <section>
+    <Container className="text-white">
       <h1>Post</h1>
       {renderPost()}
-      <h2>Comments</h2>
-      {renderComments()}
-    </section>
+      <Container className="mt-5">
+        <Row>
+          <Col>
+            <h2 className="ps-3">Comments</h2>
+          </Col>
+        </Row>
+        <Row>
+          <Col>{renderComments()}</Col>
+        </Row>
+      </Container>
+    </Container>
   );
 };
 

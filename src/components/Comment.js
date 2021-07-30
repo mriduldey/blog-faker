@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import { Card } from "react-bootstrap";
 
 export const Comment = ({ comment }) => (
-  <aside className="comment">
-    <h2>{comment.title}</h2>
-    <h3>{comment.email}</h3>
-    <p>{comment.body}</p>
+  <aside className="comment-wrapper p-2 ms-5 mb-2 bg-secondary rounded-3">
+    <Card
+      bg={"dark".toLowerCase()}
+      text={"dark".toLowerCase() === "light" ? "dark" : "white"}
+    >
+      <Card.Header>
+        <h2>{comment.name.toUpperCase()}</h2>
+      </Card.Header>
+      <Card.Body>
+        <Card.Title>{comment.email}</Card.Title>
+        <Card.Text>{comment.body}</Card.Text>
+      </Card.Body>
+    </Card>
   </aside>
-)
+);
