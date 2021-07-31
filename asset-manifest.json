@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/blog-faker/static/css/main.0bb4898a.chunk.css",
+    "main.js": "/blog-faker/static/js/main.5f284d39.chunk.js",
+    "main.js.map": "/blog-faker/static/js/main.5f284d39.chunk.js.map",
+    "runtime-main.js": "/blog-faker/static/js/runtime-main.19e9e9c4.js",
+    "runtime-main.js.map": "/blog-faker/static/js/runtime-main.19e9e9c4.js.map",
+    "static/js/2.49160e0d.chunk.js": "/blog-faker/static/js/2.49160e0d.chunk.js",
+    "static/js/2.49160e0d.chunk.js.map": "/blog-faker/static/js/2.49160e0d.chunk.js.map",
+    "index.html": "/blog-faker/index.html",
+    "static/css/main.0bb4898a.chunk.css.map": "/blog-faker/static/css/main.0bb4898a.chunk.css.map",
+    "static/js/2.49160e0d.chunk.js.LICENSE.txt": "/blog-faker/static/js/2.49160e0d.chunk.js.LICENSE.txt",
+    "static/media/cover1.ff3c9b79.webp": "/blog-faker/static/media/cover1.ff3c9b79.webp",
+    "static/media/cover2.21658be9.png": "/blog-faker/static/media/cover2.21658be9.png",
+    "static/media/cover3.f61ec2eb.jpg": "/blog-faker/static/media/cover3.f61ec2eb.jpg",
+    "static/media/cover4.eb777506.jpg": "/blog-faker/static/media/cover4.eb777506.jpg",
+    "static/media/cover5.55ec56d9.jpg": "/blog-faker/static/media/cover5.55ec56d9.jpg",
+    "static/media/profile1.282b1adb.jpg": "/blog-faker/static/media/profile1.282b1adb.jpg",
+    "static/media/profile10.7add4d9d.jpeg": "/blog-faker/static/media/profile10.7add4d9d.jpeg",
+    "static/media/profile11.9e06ddf0.jpeg": "/blog-faker/static/media/profile11.9e06ddf0.jpeg",
+    "static/media/profile2.0cc52bbd.jpeg": "/blog-faker/static/media/profile2.0cc52bbd.jpeg",
+    "static/media/profile3.5faee1aa.jpeg": "/blog-faker/static/media/profile3.5faee1aa.jpeg",
+    "static/media/profile4.4fe4fb19.jpeg": "/blog-faker/static/media/profile4.4fe4fb19.jpeg",
+    "static/media/profile5.453c4718.jpeg": "/blog-faker/static/media/profile5.453c4718.jpeg",
+    "static/media/profile6.f630c76e.jpeg": "/blog-faker/static/media/profile6.f630c76e.jpeg",
+    "static/media/profile7.fbc3e530.jpeg": "/blog-faker/static/media/profile7.fbc3e530.jpeg",
+    "static/media/profile8.4f9e4a3e.jpeg": "/blog-faker/static/media/profile8.4f9e4a3e.jpeg",
+    "static/media/profile9.a7eb2d89.jpeg": "/blog-faker/static/media/profile9.a7eb2d89.jpeg",
+    "static/media/writer2.834bad45.png": "/blog-faker/static/media/writer2.834bad45.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19e9e9c4.js",
+    "static/js/2.49160e0d.chunk.js",
+    "static/css/main.0bb4898a.chunk.css",
+    "static/js/main.5f284d39.chunk.js"
+  ]
+}
