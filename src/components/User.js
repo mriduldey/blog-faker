@@ -16,8 +16,8 @@ const User = ({ user, index }) => {
           />
         </div>
       </div>
-      <Card.Body className="text-white">
-        <Card.Title>
+      <Card.Body className="text-white text-center">
+        <Card.Title className="">
           {user.name} | {user.username}
         </Card.Title>
         <Card.Text>Website: {user.website}</Card.Text>

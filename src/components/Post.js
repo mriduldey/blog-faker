@@ -17,9 +17,9 @@ export const Post = ({ post, fullPage, varient, index }) => {
           className="shadow-lg m-2"
         />
         <Card.Body>
-          <Card.Header>{post.title.toUpperCase()}</Card.Header>
+          <Card.Title>{post.title.toUpperCase()}</Card.Title>
           <Card.Text>
-            {fullPage ? post.body : post.body.substring(0, 100)}
+            {fullPage ? post.body : post.body.substring(0, 100).concat("...")}
           </Card.Text>
         </Card.Body>
       </Card>
