@@ -1,21 +1,17 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import coverPictures from "tools/userCovers";
-import profile1 from "resources/profile1.jpg";
+import profilePics, { profilePicsNumber } from "tools/userProfileImages";
 
-const User = ({ user, coverPicture }) => {
+const User = ({ user, index }) => {
+  const profilePicture = profilePics[index % profilePicsNumber];
+
   return (
-    <Card className="user-card rounded-3 shadow p-2 mt-5">
+    <Card className="user-card rounded-3 shadow p-2">
       <div className="d-flex justify-content-center align-items-center position-relative mb-5">
-        <Card.Img
-          variant="top"
-          src={coverPictures[coverPicture]}
-          className="user-image rounded-3 shadow-lg"
-        />
         <div className="profile-image-wrapper p-2 rounded-circle position-absolute top-100 start-50 translate-middle shadow-lg bg-white d-flex justify-content-center align-items-center">
           <Card.Img
             variant="top"
-            src={profile1}
+            src={profilePicture}
             className="rounded-circle profile-image shadow-lg"
           />
         </div>

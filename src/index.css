@@ -5,7 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   background: #370cc0;
-  background: linear-gradient( #4e4c4c, black);
+  background: linear-gradient(#4e4c4c, black);
   animation: animate-background 10s infinite;
   font-family: "Lato", sans-serif;
   font-size: 18px;
@@ -32,11 +32,12 @@ a {
 
 .user-card {
   background-color: rgba(255, 255, 255, 0.3);
+  margin-top: 5rem;
 }
 
-.user-card .user-image {
+.post-excerpt img {
   max-height: 200px;
-  /* background-color: darkolivegreen; */
+  width: auto;
   filter: opacity(90%) brightness(90%);
 }
 

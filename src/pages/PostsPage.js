@@ -20,13 +20,13 @@ const PostsPage = ({ match, dispatch, posts, loading, hasErrors }) => {
   const renderPosts = () => {
     if (loading) return <p>Loading posts...</p>;
     if (hasErrors) return <p>Unable to display posts.</p>;
-    return posts.map(post => {
+    return posts.map((post, index) => {
       // Randomly choose a varient from themes
       const varient = themes[getRandomInt(themes.length)];
       return (
-        <Col xs={12} md={6} lg={4} key={post.id}>
+        <Col xs={12} sm={6} lg={4} xl={3} key={post.id}>
           <Link to={`/posts/${post.id}`}>
-            <Post post={post} fullPage={false} varient={varient} />
+            <Post post={post} fullPage={false} varient={varient} index={index} />
           </Link>
         </Col>
       );
