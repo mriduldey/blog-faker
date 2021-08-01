@@ -38,7 +38,7 @@ a {
   /* background-color: rgba(255, 255, 255, 0.3); */
   background: linear-gradient(
     to right,
-    hsla(180, 6%, 84%, 0.2),
+    hsla(180, 100%, 51%, 0.2),
     hsla(299, 100%, 50%, 0.2)
   );
   margin-top: 5rem;
