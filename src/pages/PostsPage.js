@@ -26,7 +26,7 @@ const PostsPage = ({ match, dispatch, posts, loading, hasErrors }) => {
       return (
         <Col xs={12} sm={6} lg={4} xl={3} key={post.id}>
           <Link to={`/posts/${post.id}`}>
-            <Post post={post} fullPage={false} varient={varient} index={index} />
+            <Post post={post} fullPage={false} index={index} />
           </Link>
         </Col>
       );
