@@ -19,7 +19,7 @@ const UsersPage = ({ dispatch, users, loading, hasErrors }) => {
     return users.map((user, index) => {
       return (
         <Col xs={12} sm={6} lg={4} xl={3} className="mb-2" key={user.id}>
-          <Link to={`/bloggers/${user.id}/posts`} className="button">
+          <Link to={`/bloggers/${user.id}/posts`}>
             <User user={user} index={index} />
           </Link>
         </Col>

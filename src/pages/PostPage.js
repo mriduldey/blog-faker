@@ -48,7 +48,6 @@ const PostPage = ({
 
   return (
     <Container className="text-white">
-      <h1>Post</h1>
       {renderPost()}
       <Container className="mt-5">
         <Row>
