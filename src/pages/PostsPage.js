@@ -6,8 +6,6 @@ import { Container, Row, Col } from "react-bootstrap";
 // Local imports
 import { fetchPosts } from "../actions/postsActions";
 import { Post } from "../components/Post";
-import themes from "../tools/themes";
-import { getRandomInt } from "../tools/randomIntNumber";
 
 const PostsPage = ({ match, dispatch, posts, loading, hasErrors }) => {
   useEffect(() => {
@@ -21,12 +19,15 @@ const PostsPage = ({ match, dispatch, posts, loading, hasErrors }) => {
     if (loading) return <p>Loading posts...</p>;
     if (hasErrors) return <p>Unable to display posts.</p>;
     return posts.map((post, index) => {
-      // Randomly choose a varient from themes
-      const varient = themes[getRandomInt(themes.length)];
       return (
         <Col xs={12} sm={6} lg={4} xl={3} key={post.id}>
           <Link to={`/posts/${post.id}`}>
-            <Post post={post} fullPage={false} index={index} />
+            <Post
+              post={post}
+              fullPage={false}
+              index={index}
+              varient="secondary"
+            />
           </Link>
         </Col>
       );

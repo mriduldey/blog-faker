@@ -6,7 +6,7 @@ export const Post = ({ post, fullPage, varient, index }) => {
 
   return (
     <article className={fullPage ? "post-container" : "post-excerpt"}>
-      <Card bg="secondary" text="white" className="mb-3">
+      <Card bg="secondary" text="white" className="mb-3" varient={varient}>
         <Card.Img variant="top" src={coverPicture} className="shadow-lg m-2" />
         <Card.Body>
           <Card.Title>{post.title.toUpperCase()}</Card.Title>

@@ -31,7 +31,7 @@ const PostPage = ({
       if (loading.post) return <p>Loading posts...</p>;
       if (hasErrors.post) return <p>Unable to display posts.</p>;
       return (
-        post && <Post key={post.id} fullPage post={post} varient="Light" />
+        post && <Post key={post.id} fullPage post={post} varient="secondary" />
       );
     }
   };
