@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -7,31 +7,42 @@ import { Container, Row, Col } from "react-bootstrap";
 import { fetchPosts } from "../actions/postsActions";
 import { Post } from "../components/Post";
 
-const PostsPage = ({ match, dispatch, posts, loading, hasErrors }) => {
+const PostsPage = ({ match }) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const { id } = match.params;
 
     dispatch(fetchPosts(id));
   }, [dispatch, match.params]);
 
+  const { posts, loading, hasErrors } = useSelector(({ posts }) => ({
+    posts: posts.posts,
+    loading: posts.loading,
+    hasErrors: posts.hasErrors,
+  }));
+
   // Show loading, error, or success state
   const renderPosts = () => {
     if (loading) return <p>Loading posts...</p>;
     if (hasErrors) return <p>Unable to display posts.</p>;
-    return posts.map((post, index) => {
-      return (
-        <Col xs={12} sm={6} lg={4} xl={3} key={post.id}>
-          <Link to={`/posts/${post.id}`}>
-            <Post
-              post={post}
-              fullPage={false}
-              index={index}
-              varient="secondary"
-            />
-          </Link>
-        </Col>
-      );
-    });
+    return (
+      posts &&
+      posts.map((post, index) => {
+        return (
+          <Col xs={12} sm={6} lg={4} xl={3} key={post.id}>
+            <Link to={`/posts/${post.id}`}>
+              <Post
+                post={post}
+                fullPage={false}
+                index={index}
+                varient="secondary"
+              />
+            </Link>
+          </Col>
+        );
+      })
+    );
   };
 
   return (
@@ -42,12 +53,4 @@ const PostsPage = ({ match, dispatch, posts, loading, hasErrors }) => {
   );
 };
 
-// Map Redux state to component props | note: "posts" destructured from "state"
-const mapStateToProps = ({ posts }) => ({
-  loading: posts.loading,
-  hasError: posts.hasError,
-  posts: posts.posts,
-});
-
-// Connect Redux to React
-export default connect(mapStateToProps)(PostsPage);
+export default PostsPage;

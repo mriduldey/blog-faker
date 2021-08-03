@@ -1,6 +1,6 @@
 // Import library components
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 
 // Import local components
@@ -11,14 +11,8 @@ import { Comment } from "../components/Comment";
 import { fetchPost } from "../actions/postActions";
 import { fetchComments } from "../actions/commentsActions";
 
-const PostPage = ({
-  dispatch,
-  match,
-  post,
-  comments,
-  loading = {},
-  hasErrors = {},
-}) => {
+const PostPage = ({ match }) => {
+  const dispatch = useDispatch();
   useEffect(() => {
     const { id } = match.params;
 
@@ -26,7 +20,25 @@ const PostPage = ({
     dispatch(fetchComments(id));
   }, [dispatch, match]);
 
+  let count = 0;
+  const { post, comments, loading, hasErrors } = useSelector(
+    ({ post, comments }) => ({
+      post: post.post,
+      comments: comments.comments,
+      loading: {
+        post: post.loading,
+        comments: comments.loading,
+      },
+      hasErrors: {
+        post: post.hasErrors,
+        comments: comments.hasErrors,
+      },
+    })
+  );
+
   const renderPost = () => {
+    console.log("rendering count", count);
+    count++;
     if (post) {
       if (loading.post) return <p>Loading posts...</p>;
       if (hasErrors.post) return <p>Unable to display posts.</p>;
@@ -63,13 +75,4 @@ const PostPage = ({
   );
 };
 
-// Map Redux state to component props | note: "posts" destructured from "state"
-const mapStateToProps = ({ post, comments }) => ({
-  loading: { post: post.loading, comments: comments.loading },
-  hasError: { post: post.hasError, comments: comments.hasErrors },
-  post: post.post,
-  comments: comments.comments,
-});
-
-// Connect Redux to React
-export default connect(mapStateToProps)(PostPage);
+export default PostPage;
