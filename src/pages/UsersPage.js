@@ -30,7 +30,7 @@ const UsersPage = () => {
         return (
           <Col xs={12} sm={6} lg={4} xl={3} className="mb-2" key={user.id}>
             <Link to={`/bloggers/${user.id}/posts`}>
-              <User user={user} index={index} />
+              <User user={user} />
             </Link>
           </Col>
         );

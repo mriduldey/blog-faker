@@ -2,9 +2,9 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import profilePics, { profilePicsNumber } from "tools/userProfileImages";
 
-const User = ({ user, index }) => {
-  const profilePicture = profilePics[index % profilePicsNumber];
-
+const User = ({ user }) => {
+  const profilePicture = profilePics[(user.id - 1) % profilePicsNumber];
+  console.log("user componet", user);
   return (
     <Card className="user-card rounded-3 shadow p-2">
       <div className="d-flex justify-content-center align-items-center position-relative mb-5">
