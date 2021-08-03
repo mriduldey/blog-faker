@@ -43,7 +43,15 @@ const PostPage = ({ match }) => {
       if (loading.post) return <p>Loading posts...</p>;
       if (hasErrors.post) return <p>Unable to display posts.</p>;
       return (
-        post && <Post key={post.id} fullPage post={post} varient="secondary" />
+        post && (
+          <Post
+            key={post.id}
+            fullPage
+            post={post}
+            varient="secondary"
+            index={null}
+          />
+        )
       );
     }
   };
