@@ -55,17 +55,23 @@ const PostsPage = ({ match }) => {
     if (loading.user) return <p>Loading user...</p>;
     if (hasErrors.user) return <p>Unable to display posts.</p>;
 
-    return Object.keys(user).length && <User user={user} />;
+    return (
+      Object.keys(user).length && (
+        <User user={user} ClassName="position-fixed" />
+      )
+    );
   };
 
   return (
-    <Container fluid="md" className="text-white">
-      <h1>Posts by {}</h1>
+    <Container className="text-white">
       <Row>
-        <Col xs={12} lg={3} xl={4} className="mb-5">
-          {renderUser()}
+        <Col xs={12} lg={3} xl={4} className="mb-5 posts-by">
+          <div className="post-by-wrapper text-center position-fixed d-none d-sm-none d-md-none d-lg-block pt-5 mt-5">
+            <h1>Posts by</h1>
+            {renderUser()}
+          </div>
         </Col>
-        <Col xs={12} lg={9} xl={8}>
+        <Col xs={12} lg={9} xl={8} className="offset-lg-4">
           <Row>{renderPosts()}</Row>
         </Col>
       </Row>

@@ -86,3 +86,7 @@ a {
 /* Post excerpt card styling end 
    *******************************
 */
+
+.posts-by .post-by-wrapper {
+  max-width: 300px;
+}
