@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Spinner } from "react-bootstrap";
 
 // Local imports
 import { fetchUsers } from "../actions/usersActions";
@@ -21,7 +21,7 @@ const UsersPage = () => {
   }));
 
   const renderUsers = () => {
-    if (loading) return <p>Loading users...</p>;
+    if (loading) return <Spinner animation="grow" variant="warning" />;
     if (hasErrors) return <p>Unable to display users.</p>;
 
     return (

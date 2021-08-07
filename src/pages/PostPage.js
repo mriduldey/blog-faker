@@ -1,7 +1,7 @@
 // Import library components
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 
 // Import local components
 import { Post } from "../components/Post";
@@ -40,7 +40,7 @@ const PostPage = ({ match }) => {
     console.log("rendering count", count);
     count++;
     if (post) {
-      if (loading.post) return <p>Loading posts...</p>;
+      if (loading.post) return <Spinner animation="grow" variant="warning" />;
       if (hasErrors.post) return <p>Unable to display posts.</p>;
       return (
         post && (
@@ -58,7 +58,8 @@ const PostPage = ({ match }) => {
 
   const renderComments = () => {
     if (comments.length) {
-      if (loading.comments) return <p>Loading posts...</p>;
+      if (loading.comments)
+        return <Spinner animation="grow" variant="warning" />;
       if (hasErrors.comments) return <p>Unable to display posts.</p>;
       return comments.map((comment, index) => (
         <Comment key={comment.id} fullPage comment={comment} index={index} />

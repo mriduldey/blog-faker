@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 
 // Local imports
 import { fetchPosts } from "../actions/postsActions";
@@ -30,7 +30,7 @@ const PostsPage = ({ match }) => {
 
   // Show loading, error, or success state
   const renderPosts = () => {
-    if (loading.posts) return <p>Loading posts...</p>;
+    if (loading.posts) return <Spinner animation="grow" variant="warning" />;
     if (hasErrors.posts) return <p>Unable to display posts.</p>;
     return (
       posts &&
@@ -52,7 +52,7 @@ const PostsPage = ({ match }) => {
   };
 
   const renderUser = () => {
-    if (loading.user) return <p>Loading user...</p>;
+    if (loading.user) return <Spinner animation="grow" variant="warning" />;
     if (hasErrors.user) return <p>Unable to display posts.</p>;
 
     return (
