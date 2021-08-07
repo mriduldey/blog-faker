@@ -1,6 +1,10 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+
+// Local imports
 import coverPictures, { coverPicturesNumber } from "tools/userCovers";
+import { capitalise } from "tools/capitalize";
+
 export const Post = ({ post, fullPage, varient, index }) => {
   const coverPicture = coverPictures[index % coverPicturesNumber];
 
@@ -15,7 +19,7 @@ export const Post = ({ post, fullPage, varient, index }) => {
           />
         )}
         <Card.Body>
-          <Card.Title>{post.title.toUpperCase()}</Card.Title>
+          <Card.Title>{capitalise(post.title)}</Card.Title>
           <Card.Text>
             {fullPage ? post.body : post.body.substring(0, 80).concat("...")}
           </Card.Text>

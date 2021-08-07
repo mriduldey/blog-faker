@@ -20,9 +20,15 @@ const User = ({ user }) => {
         <Card.Title className="">
           {user.name} | {user.username}
         </Card.Title>
-        <Card.Text>Website: {user.website}</Card.Text>
-        <Card.Text>Email: {user.email}</Card.Text>
-        <Card.Text>City: {user.address.city}</Card.Text>
+        <Card.Text>
+          <i class="bi bi-globe2"></i> {user.website}
+        </Card.Text>
+        <Card.Text>
+          <i className="bi bi-envelope-fill"></i> {user.email}
+        </Card.Text>
+        <Card.Text>
+          <i class="bi bi-house-fill"></i> {user.address.city}
+        </Card.Text>
       </Card.Body>
     </Card>
   );

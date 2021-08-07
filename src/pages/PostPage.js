@@ -60,8 +60,8 @@ const PostPage = ({ match }) => {
     if (comments.length) {
       if (loading.comments) return <p>Loading posts...</p>;
       if (hasErrors.comments) return <p>Unable to display posts.</p>;
-      return comments.map(comment => (
-        <Comment key={comment.id} fullPage comment={comment} />
+      return comments.map((comment, index) => (
+        <Comment key={comment.id} fullPage comment={comment} index={index} />
       ));
     }
   };
@@ -72,7 +72,7 @@ const PostPage = ({ match }) => {
       <Container className="mt-5">
         <Row>
           <Col>
-            <h2 className="ps-3">Comments</h2>
+            <h2 className="ps-2">Comments</h2>
           </Col>
         </Row>
         <Row>

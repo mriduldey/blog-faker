@@ -90,3 +90,20 @@ a {
 .posts-by .post-by-wrapper {
   max-width: 300px;
 }
+
+/*---------------------*/
+
+/* comment */
+
+.comment-image-wrapper{
+  height: 40px;
+  width: 40px;
+  transform: translate(calc(-100% - 10px), 5px);
+}
+
+.comment-image-wrapper .comment-image {
+  object-fit: cover;
+}
+
+/* comment styling end*/
+
