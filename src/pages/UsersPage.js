@@ -26,7 +26,7 @@ const UsersPage = () => {
 
     return (
       users &&
-      users.map((user, index) => {
+      users.map(user => {
         return (
           <Col xs={12} sm={6} lg={4} xl={3} className="mb-2" key={user.id}>
             <Link to={`/blogger/${user.id}/posts`}>

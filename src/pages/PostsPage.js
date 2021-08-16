@@ -8,16 +8,17 @@ import { fetchPosts } from "../actions/postsActions";
 import { fetchUser } from "actions/userActions";
 import { Post } from "../components/Post";
 import User from "../components/User";
+import NavigateContent from "components/navigateContent/NavigateContent";
 
-const PostsPage = ({ match }) => {
+const PostsPage = () => {
   const { bloggerId } = useParams();
+  const bloggerIdNum = Number(bloggerId);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // const { id } = match.params;
-    dispatch(fetchPosts(bloggerId));
-    dispatch(fetchUser(bloggerId));
-  }, [dispatch, bloggerId]);
+    dispatch(fetchPosts(bloggerIdNum));
+    dispatch(fetchUser(bloggerIdNum));
+  }, [dispatch, bloggerIdNum]);
 
   const { user, posts, loading, hasErrors } = useSelector(
     ({ user, posts }) => ({
@@ -37,7 +38,7 @@ const PostsPage = ({ match }) => {
       posts.map((post, index) => {
         return (
           <Col xs={12} sm={6} lg={4} key={post.id}>
-            <Link to={`/blogger/${bloggerId}/posts/${post.id}`}>
+            <Link to={`/blogger/${bloggerIdNum}/posts/${post.id}`}>
               <Post
                 post={post}
                 fullPage={false}
@@ -60,7 +61,21 @@ const PostsPage = ({ match }) => {
 
     return (
       Object.keys(user).length && (
-        <User user={user} className="position-fixed" />
+        <>
+          <User user={user} />
+          <NavigateContent
+            leftLink={
+              bloggerIdNum - 1 >= 1
+                ? `/blogger/${bloggerIdNum - 1}/posts`
+                : null
+            }
+            rightLink={
+              bloggerIdNum + 1 <= 10
+                ? `/blogger/${bloggerIdNum + 1}/posts`
+                : null
+            }
+          />
+        </>
       )
     );
   };

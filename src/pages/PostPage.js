@@ -80,6 +80,8 @@ const PostPage = () => {
     }
   };
 
+  // check if post navigator link should render or not depending on the available post
+  // "isPrevious" denotes the navigation link is for left (previous) or right
   const isPostExist = (isPrevious = false) =>
     isPrevious
       ? postIdNum - 1 > (bloggerId - 1) * 10

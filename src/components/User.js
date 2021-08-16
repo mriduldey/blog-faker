@@ -2,10 +2,10 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import profilePics, { profilePicsNumber } from "tools/userProfileImages";
 
-const User = ({ user }) => {
+const User = ({ user}) => {
   const profilePicture = profilePics[(user.id - 1) % profilePicsNumber];
   return (
-    <Card className="user-card rounded-3 shadow p-2">
+    <Card className="user-card rounded-3 shadow p-2 mb-3">
       <div className="d-flex justify-content-center align-items-center position-relative mb-5">
         <div className="profile-image-wrapper p-2 rounded-circle position-absolute top-100 start-50 translate-middle shadow-lg bg-white d-flex justify-content-center align-items-center">
           <Card.Img

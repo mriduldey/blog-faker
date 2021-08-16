@@ -7,7 +7,9 @@ import Navigate from "components/navigate/Navigate";
 const NavigateContent = ({ leftLink, rightLink }) => {
   return (
     <Row>
-      <Col>{leftLink && <Navigate left link={leftLink} />}</Col>
+      <Col className="d-flex justify-content-start">
+        {leftLink && <Navigate left link={leftLink} />}
+      </Col>
       <Col className="d-flex justify-content-end">
         {rightLink && <Navigate link={rightLink} />}
       </Col>
