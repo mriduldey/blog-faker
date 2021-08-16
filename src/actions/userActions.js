@@ -19,7 +19,6 @@ export const getUserfailure = () => ({
 
 // Combine them all in a asynchronous thunk
 export function fetchUser(userId) {
-  console.log(userId);
   return async dispatch => {
     dispatch(getUser());
 
@@ -28,7 +27,6 @@ export function fetchUser(userId) {
         "https://jsonplaceholder.typicode.com/users/" + userId
       );
       const user = await response.json();
-      console.log("user action", user);
       dispatch(getUserSuccess(user));
     } catch (error) {
       dispatch(getUserfailure());

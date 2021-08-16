@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 
 // Local imports
@@ -10,14 +10,14 @@ import { Post } from "../components/Post";
 import User from "../components/User";
 
 const PostsPage = ({ match }) => {
+  const { bloggerId } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const { id } = match.params;
-    console.log(id);
-    dispatch(fetchPosts(id));
-    dispatch(fetchUser(id));
-  }, [dispatch, match.params]);
+    // const { id } = match.params;
+    dispatch(fetchPosts(bloggerId));
+    dispatch(fetchUser(bloggerId));
+  }, [dispatch, bloggerId]);
 
   const { user, posts, loading, hasErrors } = useSelector(
     ({ user, posts }) => ({
@@ -37,7 +37,7 @@ const PostsPage = ({ match }) => {
       posts.map((post, index) => {
         return (
           <Col xs={12} sm={6} lg={4} key={post.id}>
-            <Link to={`/posts/${post.id}`}>
+            <Link to={`/blogger/${bloggerId}/posts/${post.id}`}>
               <Post
                 post={post}
                 fullPage={false}
@@ -52,12 +52,15 @@ const PostsPage = ({ match }) => {
   };
 
   const renderUser = () => {
-    if (loading.user) return <Spinner animation="grow" variant="warning" />;
+    if (loading.user)
+      return (
+        <Spinner animation="grow" variant="warning" className="text-center" />
+      );
     if (hasErrors.user) return <p>Unable to display posts.</p>;
 
     return (
       Object.keys(user).length && (
-        <User user={user} ClassName="position-fixed" />
+        <User user={user} className="position-fixed" />
       )
     );
   };

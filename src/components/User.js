@@ -4,7 +4,6 @@ import profilePics, { profilePicsNumber } from "tools/userProfileImages";
 
 const User = ({ user }) => {
   const profilePicture = profilePics[(user.id - 1) % profilePicsNumber];
-  console.log("user componet", user);
   return (
     <Card className="user-card rounded-3 shadow p-2">
       <div className="d-flex justify-content-center align-items-center position-relative mb-5">
@@ -21,13 +20,13 @@ const User = ({ user }) => {
           {user.name} | {user.username}
         </Card.Title>
         <Card.Text>
-          <i class="bi bi-globe2"></i> {user.website}
+          <i className="bi bi-globe2"></i> {user.website}
         </Card.Text>
         <Card.Text>
           <i className="bi bi-envelope-fill"></i> {user.email}
         </Card.Text>
         <Card.Text>
-          <i class="bi bi-house-fill"></i> {user.address.city}
+          <i className="bi bi-house-fill"></i> {user.address.city}
         </Card.Text>
       </Card.Body>
     </Card>

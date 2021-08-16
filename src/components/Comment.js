@@ -12,7 +12,7 @@ export const Comment = ({ comment, index }) => {
       <Card bg="dark" className="text-white">
         <OverlayTrigger
           key="test"
-          placement="top"
+          placement="bottom"
           overlay={
             <Tooltip id={`tooltip-test-${index}`}>
               <h6 className="mt-2 text-left">

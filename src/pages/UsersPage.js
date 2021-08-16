@@ -29,7 +29,7 @@ const UsersPage = () => {
       users.map((user, index) => {
         return (
           <Col xs={12} sm={6} lg={4} xl={3} className="mb-2" key={user.id}>
-            <Link to={`/bloggers/${user.id}/posts`}>
+            <Link to={`/blogger/${user.id}/posts`}>
               <User user={user} />
             </Link>
           </Col>

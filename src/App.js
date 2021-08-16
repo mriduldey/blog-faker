@@ -18,8 +18,12 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path="/" component={UsersPage} />
-        <Route exact path="/bloggers/:id/posts" component={PostsPage} />
-        <Route exact path="/posts/:id" component={PostPage} />
+        <Route exact path="/blogger/:bloggerId/posts" component={PostsPage} />
+        <Route
+          exact
+          path="/blogger/:bloggerId/posts/:postId"
+          component={PostPage}
+        />
         <Redirect to="/" />
       </Switch>
     </Router>

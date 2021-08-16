@@ -2,25 +2,26 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 // Import local components
 import { Post } from "../components/Post";
 import { Comment } from "../components/Comment";
+import NavigateContent from "components/navigateContent/NavigateContent";
 
 // Import actions
 import { fetchPost } from "../actions/postActions";
 import { fetchComments } from "../actions/commentsActions";
 
-const PostPage = ({ match }) => {
+const PostPage = () => {
+  const { bloggerId, postId } = useParams();
+  const postIdNum = Number(postId);
   const dispatch = useDispatch();
   useEffect(() => {
-    const { id } = match.params;
+    dispatch(fetchPost(postIdNum));
+    dispatch(fetchComments(postIdNum));
+  }, [dispatch, postIdNum]);
 
-    dispatch(fetchPost(id));
-    dispatch(fetchComments(id));
-  }, [dispatch, match]);
-
-  let count = 0;
   const { post, comments, loading, hasErrors } = useSelector(
     ({ post, comments }) => ({
       post: post.post,
@@ -37,20 +38,32 @@ const PostPage = ({ match }) => {
   );
 
   const renderPost = () => {
-    console.log("rendering count", count);
-    count++;
     if (post) {
       if (loading.post) return <Spinner animation="grow" variant="warning" />;
       if (hasErrors.post) return <p>Unable to display posts.</p>;
       return (
         post && (
-          <Post
-            key={post.id}
-            fullPage
-            post={post}
-            varient="secondary"
-            index={null}
-          />
+          <>
+            <Post
+              key={post.id}
+              fullPage
+              post={post}
+              varient="secondary"
+              index={null}
+            />
+            <NavigateContent
+              leftLink={
+                isPostExist(true)
+                  ? `/blogger/${bloggerId}/posts/${postIdNum - 1}`
+                  : null
+              }
+              rightLink={
+                isPostExist()
+                  ? `/blogger/${bloggerId}/posts/${postIdNum + 1}`
+                  : null
+              }
+            />
+          </>
         )
       );
     }
@@ -66,6 +79,11 @@ const PostPage = ({ match }) => {
       ));
     }
   };
+
+  const isPostExist = (isPrevious = false) =>
+    isPrevious
+      ? postIdNum - 1 > (bloggerId - 1) * 10
+      : postIdNum + 1 <= bloggerId * 10;
 
   return (
     <Container className="text-white">
