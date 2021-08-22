@@ -85,7 +85,7 @@ const PostsPage = () => {
       <Row>
         <Col xs={12} lg={3} xl={4} className="mb-5 posts-by">
           <h1 className="d-block d-lg-none">Posts by {user.username}</h1>
-          <div className="post-by-wrapper text-center position-fixed d-none d-lg-block pt-5 mt-5">
+          <div className="post-by-wrapper text-center position-fixed d-none d-lg-block pt-3 mt-5">
             <h1>Posts by</h1>
             {renderUser()}
           </div>
